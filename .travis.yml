@@ -8,6 +8,8 @@ python:
   - pypy
 services:
   - memcached
+before_install: 
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install -U setuptools; fi
 install: python setup.py install
 before_script: pip install -r test-requirements.txt
 script:
